@@ -1,15 +1,13 @@
 import streamlit as st
-import numpy as np
 import cv2
+import numpy as np
 
+st.title("Path Planning Visualizer")
 
-st.title("Hello, Streamlit 👋")
+uploaded_file = st.file_uploader("Upload a map image", type=["png", "jpg", "jpeg"])
 
-st.write("Here's a simple example using OpenCV and NumPy.")
+if uploaded_file is not None:
+    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+    image = cv2.imdecode(file_bytes, 0)
 
-# Generate a dummy image with NumPy
-img = np.zeros((300, 300, 3), dtype=np.uint8)
-cv2.circle(img, (150, 150), 100, (255, 0, 0), -1)  # Draw a blue circle
-
-# Display image in Streamlit
-st.image(img, channels="BGR", caption="Generated with OpenCV")
+    st.image(image, caption="Uploaded Map", use_column_width=True)
