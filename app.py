@@ -1,6 +1,10 @@
 import streamlit as st
 import numpy as np
 import cv2
+import os
+os.system('pip install opencv-python')
+import cv2
+
 
 st.title("Hello, Streamlit 👋")
 
