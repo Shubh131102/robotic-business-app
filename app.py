@@ -10,4 +10,5 @@ if uploaded_file is not None:
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     image = cv2.imdecode(file_bytes, 0)
 
-    st.image(image, caption="Uploaded Map", use_column_width=True)
+    st.image(image, caption="Uploaded Map", use_container_width=True)
+
